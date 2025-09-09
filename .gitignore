@@ -1,0 +1,19 @@
+/build/
+# nbproject configs
+nbproject/private/
+
+# compilados
+build/
+dist/
+*.class
+
+# IDEs
+*.iml
+.idea/
+.vscode/
+
+# logs e temporários
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
