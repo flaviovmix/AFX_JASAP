@@ -1,284 +1,257 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <title>To-Do List</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="./assets/css/guias.css">
-  <link rel="stylesheet" href="./assets/css/index-claro.css">
-  <link rel="stylesheet" href="./assets/css/modal-claro.css">
-  <!-- Novo CSS só da barra lateral -->
-  <link rel="stylesheet" href="./assets/css/sidebar.css">
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS DOS DO INDEX -->
+    <link rel="stylesheet" href="./assets/css/index-claro.css">
+    <link rel="stylesheet" href="./assets/css/modal-claro.css">
+    
+    <!-- CSS DOS MADAIS -->
+    <link rel="stylesheet" href="./assets/css/sidebar.css">
+
+    <!-- CSS DO TAREFAS -->
+    <link rel="stylesheet" href="./assets/css/guias.css">
+
+    <!-- CSS DOS CONTATOS -->
+    <link rel="stylesheet" href="./assets/css/contatos.css">
+
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
+
+    <!-- CSS DOS CARDS -->
+    <link rel="stylesheet" href="./assets/css/card/card.css">
+    <link rel="stylesheet" href="./assets/css/card/area-info-personagem.css">
+    <link rel="stylesheet" href="./assets/css/card/normalize.css">
+    <link rel="stylesheet" href="./assets/css/card/responsividade.css">
+
 </head>
 
 <body>
-<button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mySidebar" onclick="toggleSidebar()">
-  <i class="fas fa-bars"></i>
-</button>
 
-  <header>
-    <div class="container">
-      <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
-        Nova Tarefa
-      </button>
+    <header>
+        <div class="container">
+            <div>
+                <!-- 
+                <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
+                    Nova Tarefa
+                </button>
+                <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
+                    Nova Tarefa
+                </button>
+                <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
+                    Nova Tarefa
+                </button> 
+            -->
+            </div>
 
 
-      <div class="user-menu">
-        <button class="user-btn" aria-expanded="false">
-          <i class="fas fa-user-circle"></i>
-          <span class="user-name">Flávio</span>
-          <i class="fas fa-caret-down caret"></i>
-        </button>
+            <div class="user-menu">
+                <button class="user-btn" aria-expanded="false">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="user-name">Flávio</span>
+                    <i class="fas fa-caret-down caret"></i>
+                </button>
 
-<div class="user-dropdown" id="userDropdown" hidden>
-  <a href="#">
-    <i class="fas fa-user"></i> <span class="opcoes-sub-menu">Meu Perfil</span> </a>
-  <a href="#" onclick="openModalConfig(); return false;">
-    <i class="fas fa-cog"></i> <span class="opcoes-sub-menu">Configurações</span> </a>
-  <a href="#">
-    <i class="fas fa-sign-out-alt"></i><span class="opcoes-sub-menu">Sair</span> </a>
+                <div class="user-dropdown" id="userDropdown" hidden>
+                    <a href="#">
+                        <i class="fas fa-user"></i> <span class="opcoes-sub-menu">Meu Perfil</span> </a>
+                    <a href="#" onclick="openModalConfig(); return false;">
+                        <i class="fas fa-cog"></i> <span class="opcoes-sub-menu">Configurações</span> </a>
+                    <a href="#">
+                        <i class="fas fa-sign-out-alt"></i><span class="opcoes-sub-menu">Sair</span> </a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- menu hamburger -->
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mySidebar"
+        onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="mySidebar" aria-hidden="true">
+        <nav class="sidebar-nav">
+            <button class="sidebar-close" aria-label="Fechar menu" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <a href="#"><i class="fas fa-cog"></i>Configuração</a>
+            <hr>
+            <a href="#"><i class="fas fa-tasks"></i>Tarefas</a>
+            <a href="#"><i class="fas fa-calendar"></i>Contatos</a>
+
+            <a href="javascript:void(0)" class="submenu-toggle" onclick="toggleSubmenu('submenu-cardadventure', this)"
+                aria-expanded="false">
+                <span><i class="fas fa-id-card"></i><span class="titilo-side-bar">CardAdventure</span></span>
+                <i class="fas fa-chevron-right caret"></i>
+            </a>
+            <div id="submenu-cardadventure" class="submenu" hidden>
+                <a href="#">Girls</a>
+                <a href="#">vegetables</a>
+            </div>
+        </nav>
+    </aside>
+
+
+
+    <main id="main" >
+
+
+<div class="dashboard-container">
+  <h2 class="dashboard-title">📊 Dashboard</h2>
+  <div class="dashboard-grid">
+
+    <!-- Card Tarefas -->
+    <div class="dashboard-card">
+      <div class="dashboard-icon bg-tarefas">
+        <i class="fas fa-tasks"></i>
+      </div>
+      <h5 class="card-title">Tarefas</h5>
+      <p class="card-text">Gerencie suas tarefas ativas e concluídas.</p>
+      <a href="#" class="dashboard-btn btn-green">Acessar</a>
+    </div>
+
+    <!-- Card Contatos -->
+    <div class="dashboard-card">
+      <div class="dashboard-icon bg-contatos">
+        <i class="fas fa-address-book"></i>
+      </div>
+      <h5 class="card-title">Contatos</h5>
+      <p class="card-text">Veja e edite sua lista de contatos.</p>
+      <a href="#" class="dashboard-btn btn-blue">Acessar</a>
+    </div>
+
+    
+
+
+
+<div class="dashboard-card">
+  <div class="dashboard-carousel">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="dashboard-icon bg-garotas">
+        <i class="fas fa-female"></i>
+      </div>
+      <h5 class="card-title">Garotas</h5>
+      <p class="card-text">Galeria de personagens femininas.</p>
+      <a href="#" class="dashboard-btn btn-pink">Acessar</a>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="dashboard-icon bg-atletas">
+        <i class="fas fa-running"></i>
+      </div>
+      <h5 class="card-title">Atletas</h5>
+      <p class="card-text">Acompanhe os destaques do mundo esportivo.</p>
+      <a href="#" class="dashboard-btn btn-green">Acessar</a>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="dashboard-icon bg-vegetais">
+        <i class="fas fa-carrot"></i>
+      </div>
+      <h5 class="card-title">Vegetais</h5>
+      <p class="card-text">Informações sobre vegetais.</p>
+      <a href="#" class="dashboard-btn btn-blue">Acessar</a>
+    </div>
+
+    <!-- Controles -->
+    <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+    <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+  </div>
 </div>
+
+
+
+
+    <!-- Card Relatórios -->
+    <div class="dashboard-card">
+      <div class="dashboard-icon bg-relatorios">
+        <i class="fas fa-chart-bar"></i>
       </div>
-
-
-
-
+      <h5 class="card-title">Relatórios</h5>
+      <p class="card-text">Visualize relatórios e métricas detalhadas.</p>
+      <a href="#" class="dashboard-btn btn-red">Acessar</a>
     </div>
-  </header>
 
-  <!-- Sidebar -->
-  <aside class="sidebar" id="mySidebar" aria-hidden="true">
-    <nav class="sidebar-nav">
-      <button class="sidebar-close" aria-label="Fechar menu" onclick="toggleSidebar()">
-        <i class="fas fa-times"></i>
-      </button>
-
-      <a href="#"><i class="fas fa-cog"></i>Configuração</a>
-      <hr>
-      <a href="#"><i class="fas fa-tasks"></i>Tarefas</a>
-      <a href="#"><i class="fas fa-calendar"></i>Contatos</a>
-
-      <!-- VEGETABLES -->
-      <a href="javascript:void(0)" class="submenu-toggle"
-        onclick="toggleSubmenu('submenu-cardadventure', this)" aria-expanded="false">
-        <span><i class="fas fa-id-card"></i><span class="titilo-side-bar">CardAdventure</span></span>
-        <i class="fas fa-chevron-right caret"></i>
-      </a>
-      <div id="submenu-cardadventure" class="submenu" hidden>
-        <a href="#">Girls</a>
-        <a href="#">vegetables</a>
+    <!-- Card Projetos -->
+    <div class="dashboard-card">
+      <div class="dashboard-icon bg-projetos">
+        <i class="fas fa-project-diagram"></i>
       </div>
-
-
-      
-    </nav>
-  </aside>
-
-  <!-- Backdrop -->
-  <div class="backdrop" id="sidebarBackdrop" onclick="toggleSidebar()" hidden></div>
-
-  <!-- Conteúdo principal -->
-  <main class="content" id="pageContent">
-    <div class="task-list">
-      <div class="tabs">
-
-        <input type="radio" name="tabs" id="tab-inativas">
-        <input type="radio" name="tabs" id="tab-ativas" checked>
-
-        <div class="tabs">
-          <label class="<%= check_ativa %>" 
-                 onclick="window.location.href='<%-- url(TarefasActions.ListarAtivas.class) --%>'">
-            Ativas
-          </label>
-
-          <label class="<%= check_inativa %>" 
-                 onclick="window.location.href='<%-- url(TarefasActions.ListarInativas.class) --%>'">
-            Inativas
-          </label>
-        </div>
-
-        <div class="tab-content content-ativas">
-          <div class="task-list">
-
-            <!-- TAREFA ATIVA -->
-            <div class="task baixa">
-              <div class="task-content">
-                <div class="task-title">
-                  <a href="novaTarefa.html" class="link-sem-estilo">TAREFA ATIVA</a>
-                </div>
-                <div class="task-meta">
-                  <a href="novaTarefa.html" class="link-sem-estilo">
-                    <span><i class="fas fa-layer-group"></i>0 subtarefas</span>
-                  </a>
-                  <span><i class="fas fa-calendar-alt"></i>14 ago - 2025</span>
-                  <span><i class="fas fa-user-alt"></i>Pedro Henrique</span>
-                </div>
-                <span class="descricao">AQUI VAI A DESCRICAO DA TAREFA</span>
-              </div>
-
-              <div class="task-actions">
-                <div>
-                  <label class="checkbox-container">
-                    <div class="usuario_concluir">
-                      <div class="assigned"><strong>Quinta-feira, 14 ago - 2025</strong></div>
-                      <form action="#" method="get" style="display:inline;">
-                        <input type="hidden" name="estado_atual" value="true">
-                        <input type="hidden" name="ativa" value="0">
-                        <input type="hidden" name="id_tarefa" value="118">
-                        <input type="checkbox" name="ativo">
-                      </form>
-                    </div>
-                  </label>
-                </div>
-                <a href="#" class="deletar-link">
-                  <i class="fas fa-trash"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- TAREFA INATIVA -->
-            <div class="task baixa">
-              <div class="task-content">
-                <div class="task-title opaco">
-                  <a href="novaTarefa.html" class="link-sem-estilo">TAREFA INATIVA</a>
-                </div>
-                <div class="task-meta opaco">
-                  <a href="novaTarefa.html" class="link-sem-estilo">
-                    <span><i class="fas fa-layer-group"></i>0 subtarefas</span>
-                  </a>
-                  <span><i class="fas fa-calendar-alt"></i>14 ago - 2025</span>
-                  <span><i class="fas fa-user-alt"></i>Pedro Henrique</span>
-                </div>
-                <span class="descricao opaco">AQUI VAI A DESCRICAO DA TAREFA</span>
-              </div>
-
-              <div class="task-actions">
-                <div>
-                  <label class="checkbox-container">
-                    <div class="usuario_concluir">
-                      <div class="assigned"><strong>Quinta-feira, 14 ago - 2025</strong></div>
-                      <form action="#" method="get" style="display:inline;">
-                        <input type="hidden" name="estado_atual" value="true">
-                        <input type="hidden" name="inativo" value="0">
-                        <input type="hidden" name="id_tarefa" value="118">
-                        <input type="checkbox" name="inativo" checked>
-                      </form>
-                    </div>
-                  </label>
-                </div>
-                <a href="#" class="deletar-link">
-                  <i class="fas fa-trash"></i>
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
+      <h5 class="card-title">Projetos</h5>
+      <p class="card-text">Acompanhe os projetos em andamento.</p>
+      <a href="#" class="dashboard-btn btn-purple">Acessar</a>
     </div>
-  </main>
 
-  <script src="./assets/js/index.js"></script>
-  <script src="./assets/js/Utilidades.js"></script>
+    <!-- Card Configurações -->
+    <div class="dashboard-card">
+      <div class="dashboard-icon bg-config">
+        <i class="fas fa-cogs"></i>
+      </div>
+      <h5 class="card-title">Configurações</h5>
+      <p class="card-text">Personalize temas, preferências e opções do sistema.</p>
+      <a href="#" class="dashboard-btn btn-yellow">Acessar</a>
+    </div>
 
-  <!-- JS mínimo para o sidebar -->
-  <script>
-    (function () {
-      const sidebar   = document.getElementById('mySidebar');
-      const backdrop  = document.getElementById('sidebarBackdrop');
-      const menuBtn   = document.querySelector('.menu-btn');
+  </div>
+</div>
 
-      window.toggleSidebar = function toggleSidebar() {
-        const isOpen = sidebar.classList.toggle('active');
-        document.body.classList.toggle('menu-open', isOpen);
-        sidebar.setAttribute('aria-hidden', String(!isOpen));
-        if (menuBtn) menuBtn.setAttribute('aria-expanded', String(isOpen));
 
-        if (backdrop) {
-          if (isOpen) {
-            backdrop.hidden = false;
-            requestAnimationFrame(() => backdrop.classList.add('show'));
-          } else {
-            backdrop.classList.remove('show');
-            backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
-          }
-        }
-      };
 
-      window.toggleSubmenu = function toggleSubmenu(id, triggerEl) {
-        const el = document.getElementById(id);
-        const expanded = triggerEl.getAttribute('aria-expanded') === 'true';
-        triggerEl.setAttribute('aria-expanded', String(!expanded));
-        el.hidden = expanded;
-      };
-
-      // Fecha com ESC
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && sidebar.classList.contains('active')) toggleSidebar();
-      });
-    })();
-  </script>
 
 
 <script>
-  document.addEventListener("click", function (e) {
-    const btn = e.target.closest(".user-btn");
-    const menu = e.target.closest(".user-menu");
+  const items = document.querySelectorAll(".dashboard-card .carousel-item");
+  let index = 0;
 
-    // Se clicou no botão
-    if (btn && menu) {
-      e.stopPropagation();
-      const dropdown = menu.querySelector(".user-dropdown");
-      const expanded = btn.getAttribute("aria-expanded") === "true";
-
-      // fecha se já estiver aberto
-      if (expanded) {
-        btn.setAttribute("aria-expanded", "false");
-        dropdown.classList.remove("show");
-        dropdown.setAttribute("hidden", "");
-      } else {
-        // fecha todos antes de abrir este
-        document.querySelectorAll(".user-dropdown").forEach(dd => {
-          dd.classList.remove("show");
-          dd.setAttribute("hidden", "");
-        });
-        document.querySelectorAll(".user-btn").forEach(b => {
-          b.setAttribute("aria-expanded", "false");
-        });
-
-        btn.setAttribute("aria-expanded", "true");
-        dropdown.classList.add("show");
-        dropdown.removeAttribute("hidden");
-      }
-      return;
-    }
-
-    // Clique fora fecha todos
-    document.querySelectorAll(".user-dropdown").forEach(dd => {
-      dd.classList.remove("show");
-      dd.setAttribute("hidden", "");
+  function showSlide(n) {
+    items.forEach((item, i) => {
+      item.classList.toggle("active", i === n);
     });
-    document.querySelectorAll(".user-btn").forEach(b => {
-      b.setAttribute("aria-expanded", "false");
-    });
+  }
+
+  document.querySelector(".carousel-btn.next").addEventListener("click", () => {
+    index = (index + 1) % items.length;
+    showSlide(index);
   });
 
-  // Fecha no ESC
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") {
-      document.querySelectorAll(".user-dropdown").forEach(dd => {
-        dd.classList.remove("show");
-        dd.setAttribute("hidden", "");
-      });
-      document.querySelectorAll(".user-btn").forEach(b => {
-        b.setAttribute("aria-expanded", "false");
-      });
-    }
+  document.querySelector(".carousel-btn.prev").addEventListener("click", () => {
+    index = (index - 1 + items.length) % items.length;
+    showSlide(index);
   });
+
+  // Inicia no primeiro slide
+  showSlide(index);
 </script>
+
+  
+
+
+
+    </main>
+
+    <script src="./assets/js/menu-usuario.js"></script>
+    <script src="./assets/js/sidebar.js"></script>
+
 
 
 </body>
+
 </html>

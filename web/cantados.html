@@ -1,0 +1,68 @@
+  <!-- Formulário -->
+  <section>
+    <h2 class="titulo-centro">Cadastrar Contato</h2>
+    <form>
+      <table>
+        <tr>
+          <td><i class="fas fa-user"></i> Nome</td>
+          <td><input type="text" name="nome" placeholder="Ex: João da Silva"></td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-phone"></i> Telefone</td>
+          <td><input type="text" name="telefone" placeholder="(99) 99999-9999"></td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-envelope"></i> E-mail</td>
+          <td><input type="email" name="email" placeholder="email@exemplo.com"></td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-map-marker-alt"></i> Endereço</td>
+          <td><input type="text" name="endereco" placeholder="Rua, nº, bairro"></td>
+        </tr>
+      </table>
+      <div class="actions">
+        <button type="submit" class="save-btn">Salvar</button>
+        <button type="reset" class="cancel-btn">Cancelar</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Tabela de contatos -->
+<section>
+  <h2 class="titulo-centro">Contatos Cadastrados</h2>
+  <table class="tabela-contatos">
+    <tr>
+      <th>Nome</th>
+      <th>Telefone</th>
+      <th>E-mail</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><i class="fas fa-user"></i>João Silva</td>
+      <td><i class="fas fa-phone"></i>(21) 99999-1111</td>
+      <td><i class="fas fa-envelope"></i>joao@email.com</td>
+      <td class="acoes">
+        <button class="acao-btn edit" title="Editar"><i class="fas fa-pen"></i></button>
+        <button class="acao-btn delete" title="Excluir"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+    <tr>
+      <td><i class="fas fa-user"></i> Maria Oliveira</td>
+      <td><i class="fas fa-phone"></i> (21) 98888-2222</td>
+      <td><i class="fas fa-envelope"></i> maria@email.com</td>
+      <td class="acoes">
+        <button class="acao-btn edit" title="Editar"><i class="fas fa-pen"></i></button>
+        <button class="acao-btn delete" title="Excluir"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+    <tr>
+      <td><i class="fas fa-user"></i> Pedro Santos</td>
+      <td><i class="fas fa-phone"></i> (21) 97777-3333</td>
+      <td><i class="fas fa-envelope"></i> pedro@email.com</td>
+      <td class="acoes">
+        <button class="acao-btn edit" title="Editar"><i class="fas fa-pen"></i></button>
+        <button class="acao-btn delete" title="Excluir"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+  </table>
+</section>

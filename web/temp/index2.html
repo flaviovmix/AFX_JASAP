@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./assets/css/guias.css">
+  <link rel="stylesheet" href="./assets/css/index-claro.css">
+  <link rel="stylesheet" href="./assets/css/modal-claro.css">
+  <link rel="stylesheet" href="./assets/css/sidebar.css">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+<button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mySidebar" onclick="toggleSidebar()">
+  <i class="fas fa-bars"></i>
+</button>
+
+  <header>
+    <div class="container">
+      <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
+        Nova Tarefa
+      </button>
+
+
+      <div class="user-menu">
+        <button class="user-btn" aria-expanded="false">
+          <i class="fas fa-user-circle"></i>
+          <span class="user-name">Flávio</span>
+          <i class="fas fa-caret-down caret"></i>
+        </button>
+
+          <div class="user-dropdown" id="userDropdown" hidden>
+            <a href="#">
+              <i class="fas fa-user"></i> <span class="opcoes-sub-menu">Meu Perfil</span> </a>
+            <a href="#" onclick="openModalConfig(); return false;">
+              <i class="fas fa-cog"></i> <span class="opcoes-sub-menu">Configurações</span> </a>
+            <a href="#">
+              <i class="fas fa-sign-out-alt"></i><span class="opcoes-sub-menu">Sair</span> </a>
+          </div>
+      </div>
+
+
+
+
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="mySidebar" aria-hidden="true">
+    <nav class="sidebar-nav">
+      <button class="sidebar-close" aria-label="Fechar menu" onclick="toggleSidebar()">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <a href="#"><i class="fas fa-cog"></i>Configuração</a>
+      <hr>
+      <a href="#"><i class="fas fa-tasks"></i>Tarefas</a>
+      <a href="#"><i class="fas fa-calendar"></i>Contatos</a>
+
+      <!-- VEGETABLES -->
+      <a href="javascript:void(0)" class="submenu-toggle"
+        onclick="toggleSubmenu('submenu-cardadventure', this)" aria-expanded="false">
+        <span><i class="fas fa-id-card"></i><span class="titilo-side-bar">CardAdventure</span></span>
+        <i class="fas fa-chevron-right caret"></i>
+      </a>
+      <div id="submenu-cardadventure" class="submenu" hidden>
+        <a href="#">Girls</a>
+        <a href="#">vegetables</a>
+      </div>
+
+
+      
+    </nav>
+  </aside>
+
+  <!-- Backdrop -->
+  <div class="backdrop" id="sidebarBackdrop" onclick="toggleSidebar()" hidden></div>
+
+  <!-- Conteúdo principal -->
+  <main >
+    
+  </main>
+</div>
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/Utilidades.js"></script>
+
+  <!-- JS mínimo para o sidebar -->
+  <script>
+    (function () {
+      const sidebar   = document.getElementById('mySidebar');
+      const backdrop  = document.getElementById('sidebarBackdrop');
+      const menuBtn   = document.querySelector('.menu-btn');
+
+      window.toggleSidebar = function toggleSidebar() {
+        const isOpen = sidebar.classList.toggle('active');
+        document.body.classList.toggle('menu-open', isOpen);
+        sidebar.setAttribute('aria-hidden', String(!isOpen));
+        if (menuBtn) menuBtn.setAttribute('aria-expanded', String(isOpen));
+
+        if (backdrop) {
+          if (isOpen) {
+            backdrop.hidden = false;
+            requestAnimationFrame(() => backdrop.classList.add('show'));
+          } else {
+            backdrop.classList.remove('show');
+            backdrop.addEventListener('transitionend', () => { backdrop.hidden = true; }, { once: true });
+          }
+        }
+      };
+
+      window.toggleSubmenu = function toggleSubmenu(id, triggerEl) {
+        const el = document.getElementById(id);
+        const expanded = triggerEl.getAttribute('aria-expanded') === 'true';
+        triggerEl.setAttribute('aria-expanded', String(!expanded));
+        el.hidden = expanded;
+      };
+
+      // Fecha com ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sidebar.classList.contains('active')) toggleSidebar();
+      });
+    })();
+  </script>
+
+
+<script>
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest(".user-btn");
+    const menu = e.target.closest(".user-menu");
+
+    // Se clicou no botão
+    if (btn && menu) {
+      e.stopPropagation();
+      const dropdown = menu.querySelector(".user-dropdown");
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+
+      // fecha se já estiver aberto
+      if (expanded) {
+        btn.setAttribute("aria-expanded", "false");
+        dropdown.classList.remove("show");
+        dropdown.setAttribute("hidden", "");
+      } else {
+        // fecha todos antes de abrir este
+        document.querySelectorAll(".user-dropdown").forEach(dd => {
+          dd.classList.remove("show");
+          dd.setAttribute("hidden", "");
+        });
+        document.querySelectorAll(".user-btn").forEach(b => {
+          b.setAttribute("aria-expanded", "false");
+        });
+
+        btn.setAttribute("aria-expanded", "true");
+        dropdown.classList.add("show");
+        dropdown.removeAttribute("hidden");
+      }
+      return;
+    }
+
+    // Clique fora fecha todos
+    document.querySelectorAll(".user-dropdown").forEach(dd => {
+      dd.classList.remove("show");
+      dd.setAttribute("hidden", "");
+    });
+    document.querySelectorAll(".user-btn").forEach(b => {
+      b.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Fecha no ESC
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".user-dropdown").forEach(dd => {
+        dd.classList.remove("show");
+        dd.setAttribute("hidden", "");
+      });
+      document.querySelectorAll(".user-btn").forEach(b => {
+        b.setAttribute("aria-expanded", "false");
+      });
+    }
+  });
+</script>
+
+
+</body>
+</html>
