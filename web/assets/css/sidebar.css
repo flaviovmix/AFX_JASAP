@@ -31,34 +31,55 @@
 }
 .menu-btn:hover { background: var(--hover); }
 
+/* ===== Layout ===== */
+.layout {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+}
+
 /* ===== Sidebar ===== */
 .sidebar {
-  position: fixed;
-  top: 0;
+  position: absolute;            /* não ocupa espaço quando fechado */
+  top: -18px;
   left: 0;
-  height: 100dvh;
-  width: 280px;
+  width: 280px;                  /* largura fixa */
+  height: 100vh;                 /* ocupa tela inteira */
   background: var(--bg);
   border-right: 1px solid #eee;
   box-shadow: var(--shadow);
-  transform: translateX(-100%);
-  transition: transform .25s ease;
+  transform: translateX(-100%);  /* escondida inicialmente */
+  transition: transform 0.3s ease;
   z-index: 1000;
-  padding: 60px 12px 16px; /* espaço extra no topo para não colidir com o botão */
 }
-.sidebar.active { transform: translateX(0); }
+
+.sidebar.active {
+  transform: translateX(0);      /* entra suavemente */
+}
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  padding: 5px 12px 16px; /* espaço para não colidir com topo */
+}
+
+/* ===== Conteúdo principal ===== */
+.main-content {
+  flex: 1;
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.active ~ .main-content {
+  margin-left: 280px;            /* empurra conteúdo */
 }
 
 /* Links principais */
 .sidebar a {
   display: flex;
   align-items: center;
-  gap: 8px;           /* controla a distância entre ícone e texto */
+  gap: 8px;           
   padding: 10px 12px;
   border-radius: 8px;
   color: var(--text);
@@ -66,11 +87,10 @@
   font-size: 15px;
   transition: background 0.2s ease;
 }
-
 .sidebar a:hover { background: var(--hover); }
 
 .sidebar .titilo-side-bar {
-    padding-left: 15px;
+  padding-left: 15px;
 }
 
 /* Botão fechar dentro da sidebar */
@@ -122,17 +142,13 @@
 .backdrop[hidden] { display: none; }
 .backdrop.show { opacity: 1; }
 
-/* ===== Conteúdo ===== */
+/* ===== Conteúdo extra ===== */
 .content {
   max-width: 700px;
   margin: auto;
   padding: 20px;
-  transition: margin-left .25s ease;
+  transition: margin-left 0.3s ease;
 }
-
-
 
 /* ===== Scroll Lock quando menu aberto ===== */
 body.menu-open { overflow: hidden; }
-
-

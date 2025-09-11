@@ -6,6 +6,10 @@ body {
     padding-top: 70px;
 }
 
+hr {
+    margin: 1px 0 !important;
+}
+
 .task-meta i {
     margin-right: 6px;
     color: #666;

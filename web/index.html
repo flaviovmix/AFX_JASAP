@@ -81,12 +81,14 @@
         onclick="toggleSidebar()">
         <i class="fas fa-bars"></i>
     </button>
+
+      <div class="layout"> <!-- ADICIONADO -->
     <!-- Sidebar -->
     <aside class="sidebar" id="mySidebar" aria-hidden="true">
         <nav class="sidebar-nav">
-            <button class="sidebar-close" aria-label="Fechar menu" onclick="toggleSidebar()">
+            <!-- <button class="sidebar-close" aria-label="Fechar menu" onclick="toggleSidebar()">
                 <i class="fas fa-times"></i>
-            </button>
+            </button> -->
 
             <a href="#"><i class="fas fa-cog"></i>Configuração</a>
             <hr>
@@ -107,8 +109,10 @@
 
 
 
-    <main id="main" >
+    <main class="main-content" id="main" >
 
+
+      
 
 <div class="dashboard-container">
   <h2 class="dashboard-title">📊 Dashboard</h2>
@@ -244,14 +248,13 @@
   
 
 
-
     </main>
 
     <script src="./assets/js/menu-usuario.js"></script>
     <script src="./assets/js/sidebar.js"></script>
 
 
-
+ </div> <!-- FECHA layout -->
 </body>
 
 </html>

@@ -4,6 +4,7 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding-top: 70px;
+    height: 100%;
 }
 
 .task-meta i {
@@ -20,7 +21,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: #1e1e1e; /* cabeçalho escuro */
+    background-color: #1e1e1e; /* cabeï¿½alho escuro */
     padding: 15px 30px;
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
     z-index: 10;
