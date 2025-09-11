@@ -29,6 +29,15 @@
   box-shadow: var(--shadow);
   transition: background 0.2s ease;
 }
+
+.menu-lateral {
+  font-weight: 100;
+  font-size: 20px;
+  padding: 18px;
+  font-family: sans-serif;
+
+}
+
 .menu-btn:hover { background: var(--hover); }
 
 /* ===== Layout ===== */

@@ -1,11 +1,4 @@
-body {
-  background-color: #f9f9f9;
-  color: #222;
-  font-family: Arial, sans-serif;
-  padding: 20px;
-}
-
-.container {
+.container-tarefa-master-detail {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -19,15 +12,15 @@ textarea,
 select {
   width: 100%;
   margin-bottom: 15px;
-  padding: 12px 14px; /* espaçamento interno */
+  padding: 12px 14px; /* espaï¿½amento interno */
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
   color: #222;
-  box-sizing: border-box; /* garante que o padding não estoure o tamanho */
+  box-sizing: border-box; /* garante que o padding nï¿½o estoure o tamanho */
 }
 
-.master {
+.area-principal {
   flex: 1;
   background: #fff;
   padding: 20px;
@@ -35,7 +28,11 @@ select {
   min-height: 100%; /* ou um valor como 500px */
 }
 
-.master, .detail {
+.area-principal h3 {
+  margin-top: 25px;
+}
+
+.area-principal, .detail {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
