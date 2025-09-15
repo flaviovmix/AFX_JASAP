@@ -1,0 +1,77 @@
+/* Container principal */
+.form-container {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Títulos */
+.form-container .titulo {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+/* Cada linha de input */
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 45px;
+}
+
+/* Rótulo (Aluno 1, Aluno 2) */
+.form-group span {
+    min-width: 80px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Campo de texto */
+.form-group input[type="text"] {
+    flex: 1;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form-group input[type="text"]:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 6px rgba(74, 144, 226, 0.3);
+    outline: none;
+}
+
+/* Área do botão */
+.form-actions {
+    margin-top: 20px;
+}
+
+/* Botão */
+.form-actions button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4a90e2, #357ab8);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.form-actions button:hover {
+    background: linear-gradient(135deg, #5aa0f2, #3d84c8);
+}
+
+.form-actions button:active {
+    transform: scale(0.98);
+}
