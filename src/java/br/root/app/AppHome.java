@@ -1,10 +1,10 @@
-package br.root;
+package br.root.app;
 
 import java.util.Date;
 
 public class AppHome {
     
-    public String toHtml(String conteudo){
+    public static String toHtml(String conteudo){
         
         Date atual = new Date();
         Long l = atual.getTime();
