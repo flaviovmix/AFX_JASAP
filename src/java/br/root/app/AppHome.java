@@ -1,10 +1,17 @@
 package br.root.app;
 
+import static br.jasap.core.AppManager.url;
+import br.jasap.util.Link;
+import br.root.app.tarefas.TarefasActions;
 import java.util.Date;
 
 public class AppHome {
     
-    public static String toHtml(String conteudo){
+    public static Link link(Class action) throws Exception{
+        return new Link(url(action));
+    }
+    
+    public static String toHtml(String conteudo) throws Exception {
         
         Date atual = new Date();
         Long l = atual.getTime();
@@ -53,22 +60,31 @@ public class AppHome {
             aux.append("  <link rel=\"stylesheet\" href=\"./assets/css/modal-claro.css\">\n");
 
             aux.append("\n</head>\n");
+            
+            aux.append("<script src=\"res/vendors/jquery/jquery-3.6.0.min.js\" type=\"text/javascript\"></script>\n");
+            aux.append("<script src=\"res/vendors/jquery/jquery-ui.min.js\" type=\"text/javascript\"></script>\n");
+            aux.append("<script src=\"res/js/XTLib.js?r="+l+"\" type=\"text/javascript\"></script>\n");
+            aux.append("<script src=\"res/js/XTLibJqueryV1.js?r="+l+"\" type=\"text/javascript\"></script>\n");
+            aux.append("<script src=\"res/js/jasapJquery.js?r="+l+"\" type=\"text/javascript\"></script>\n");
+            aux.append("<script src=\"res/js/validate.js?r="+l+"\" type=\"text/javascript\"></script>\n");
+            aux.append("<script src=\"res/vendors/sweetalert/sweetalert.js?r="+l+"\" type=\"text/javascript\"></script>\n");
+            
             aux.append("\n<body>\n");
             aux.append("\n");
             aux.append("    <header>\n");
             aux.append("        <div class=\"container\">\n");
-            aux.append("            <div>\n");
+            aux.append("            <div id=\"cabecalho\"> \n");
 
-            // ------------- BLOCOS DE BOTÕES COMENTADOS -------------
-            // <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
-            //     Nova Tarefa
-            // </button>
-            // <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
-            //     Nova Tarefa
-            // </button>
-            // <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
-            //     Nova Tarefa
-            // </button>
+//             ------------- BLOCOS DE BOTÕES COMENTADOS -------------
+//             <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
+//                 Nova Tarefa
+//             </button>
+//             <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
+//                 Nova Tarefa
+//             </button>
+//             <button class="btn-add" onclick="window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'">
+//                 Nova Tarefa
+//             </button>
             aux.append("            </div>\n");
             aux.append("\n");
             aux.append("\n");
@@ -111,7 +127,7 @@ public class AppHome {
             aux.append("            <a href=\"#\"><i class=\"fas fa-cog\"></i>Configuração</a>\n");
             aux.append("            <hr>\n");
             aux.append("            <a href=\"#\"><i class=\"fas fa-tachometer-alt\"></i> Dashboard</a>\n");
-            aux.append("            <a href=\"#\"><i class=\"fas fa-tasks\"></i> Tarefas</a>\n");
+            aux.append("            <a href=\"#\" onclick=\""+link(TarefasActions.class).ajax()+"\"><i class=\"fas fa-tasks\"></i> Tarefas</a>\n");
             aux.append("            <a href=\"#\"><i class=\"fas fa-address-book\"></i> Contatos</a>\n");
             aux.append("\n");
             aux.append("            <a href=\"javascript:void(0)\" class=\"submenu-toggle\" onclick=\"toggleSubmenu('submenu-cardadventure', this)\"\n");

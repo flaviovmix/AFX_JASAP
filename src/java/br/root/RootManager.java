@@ -5,6 +5,7 @@ import br.jasap.dao.DataBase;
 import br.root.app.AppActions;
 import br.root.app.dashboard.DashboardAction;
 import br.root.app.tarefas.TarefasActions;
+import br.root.app.tarefas.TarefasManager;
 import br.root.filters.DataBaseFilter;
 import br.root.filters.ErrorFilter;
 
@@ -15,6 +16,8 @@ public class RootManager extends JasapRootManager {
         regAction(AppActions.class, "home.jsap");
         regAction(DashboardAction.class);
         regAction(TarefasActions.class);
+        
+        new TarefasManager().config();
     }
     
     @Override

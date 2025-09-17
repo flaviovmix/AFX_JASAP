@@ -8,7 +8,8 @@ public class TarefasActions extends JasapAct{
 
     @Override
     public Effect execute() throws Exception {
-           
-            return new Response();
+        update("main", TarefaComponentes.listaTarefas());
+        update("cabecalho", TarefaComponentes.botoesAcion());
+        return new Response();
     }
 }

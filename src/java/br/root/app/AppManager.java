@@ -11,7 +11,7 @@ public class AppManager extends JasapRootManager {
 
     @Override
     public void config() throws Exception {
-        
+        regAction(AppActions.class);
     }
     
 }

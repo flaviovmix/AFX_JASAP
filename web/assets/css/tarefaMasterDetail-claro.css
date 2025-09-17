@@ -88,7 +88,7 @@ button {
 
 .voltar {
   position: absolute;
-  top: 40px;
+  top: 15px;
   background-color: #f9e79f;
   color: #000;
   width: 100px; 
@@ -96,7 +96,7 @@ button {
 
 .btn-add {
   position: absolute;
-  top: 40px;
+  top: 15px;
   background-color: #2ecc71;
   margin-left: 110px;
   color: white;
