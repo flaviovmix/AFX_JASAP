@@ -3,11 +3,8 @@ package br.root;
 import br.jasap.core.JasapRootManager; 
 import br.jasap.dao.DataBase;
 import br.root.app.AppActions;
-import br.root.app.cantatos.CantatosAction;
 import br.root.app.dashboard.DashboardAction;
 import br.root.app.dashboard.DashboardManager;
-import br.root.app.girls.GirlsAction;
-import br.root.app.girls.GirlsManager;
 import br.root.app.tarefas.TarefasActions;
 import br.root.app.tarefas.TarefasManager;
 import br.root.filters.DataBaseFilter;
@@ -20,13 +17,9 @@ public class RootManager extends JasapRootManager {
         regAction(AppActions.class, "home.jsap");
         regAction(DashboardAction.class);
         regAction(TarefasActions.class);
-        regAction(GirlsAction.class);
-        regAction(CantatosAction.class);
         
         new TarefasManager().config();
         new DashboardManager().config();
-        new GirlsManager().config();
-        new GirlsManager().config();
     }
     
     @Override

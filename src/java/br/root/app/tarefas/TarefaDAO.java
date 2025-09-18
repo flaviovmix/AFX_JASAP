@@ -37,9 +37,7 @@ public class TarefaDAO extends JasapDAO {
                     tarefa.setData_criacao(resultado.getDate("data_criacao"));
                     tarefa.setData_conclusao(resultado.getDate("data_conclusao"));
                     tarefa.setAtivo(resultado.getBoolean("ativo"));
-                    
-                    System.out.println(tarefa.getTitulo());
-                    
+                                        
                     lista.add(tarefa);
                 }
             }

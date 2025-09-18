@@ -2,9 +2,7 @@ package br.root.app;
 
 import static br.jasap.core.AppManager.url;
 import br.jasap.util.Link;
-import br.root.app.cantatos.CantatosAction;
 import br.root.app.dashboard.DashboardAction;
-import br.root.app.girls.GirlsAction;
 import br.root.app.tarefas.TarefasActions;
 import java.util.Date;
 
@@ -72,6 +70,12 @@ public class AppHome {
             aux.append("<script src=\"res/js/validate.js?r="+l+"\" type=\"text/javascript\"></script>\n");
             aux.append("<script src=\"res/vendors/sweetalert/sweetalert.js?r="+l+"\" type=\"text/javascript\"></script>\n");
             
+            aux.append("<script src=\"./assets/js/card/carregarMeninas.js\" ></script>");
+            aux.append("<script src=\"./assets/js/card/mostrarAreaInfoPersonagem.js\"></script>");
+            aux.append("<script src=\"./assets/js/card/alterarNomeFaseNomePersonagem.js\"></script>");
+            aux.append("<script src=\"./assets/js/card/mostrarMenuLateralCard.js\"></script>");
+
+            
             aux.append("\n<body>\n");
             aux.append("\n");
             aux.append("    <header>\n");
@@ -131,7 +135,7 @@ public class AppHome {
             aux.append("            <hr>\n");
             aux.append("            <a href=\"#\" onclick=\""+link(DashboardAction.class).ajax()+"\"><i class=\"fas fa-tachometer-alt\"></i> Dashboard</a>\n");
             aux.append("            <a href=\"#\" onclick=\""+link(TarefasActions.class).ajax()+"\"><i class=\"fas fa-tasks\"></i> Tarefas</a>\n");
-            aux.append("            <a href=\"#\" onclick=\""+link(CantatosAction.class).ajax()+"\"><i class=\"fas fa-address-book\"></i> Contatos</a>\n");
+            aux.append("            <a href=\"#\"><i class=\"fas fa-address-book\"></i> Contatos</a>\n");
             aux.append("\n");
             aux.append("            <a href=\"javascript:void(0)\" class=\"submenu-toggle\" onclick=\"toggleSubmenu('submenu-cardadventure', this)\"\n");
             aux.append("                aria-expanded=\"false\">\n");
@@ -139,7 +143,7 @@ public class AppHome {
             aux.append("                <i class=\"fas fa-chevron-right caret\"></i>\n");
             aux.append("            </a>\n");
             aux.append("            <div id=\"submenu-cardadventure\" class=\"submenu\" hidden>\n");
-            aux.append("                <a href=\"#\" onclick=\""+link(GirlsAction.class).ajax()+"\">Girls</a>\n");
+            aux.append("                <a href=\"#\">Girls</a>\n");
             aux.append("                <a href=\"#\">vegetables</a>\n");
             aux.append("            </div>\n");
             aux.append("        </nav>\n");
@@ -168,4 +172,5 @@ public class AppHome {
 
         return aux.toString();
     }
+    
 }

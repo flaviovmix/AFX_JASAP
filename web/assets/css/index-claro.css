@@ -120,7 +120,8 @@ header h1 {
 .assigned {
     font-size: 12px;
     color: #777;
-    margin-bottom: 4px;
+    margin-top: -11px;
+    margin-right: 5px;
 }
 
 .locked::after {
