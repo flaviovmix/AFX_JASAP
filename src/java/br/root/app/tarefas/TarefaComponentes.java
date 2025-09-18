@@ -8,12 +8,6 @@ public class TarefaComponentes {
         aux.append("<button class=\"btn-add\" onclick=\"window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'\">\n");
         aux.append("    Nova Tarefa\n");
         aux.append("</button>\n");
-        aux.append("<button class=\"btn-add\" onclick=\"window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'\">\n");
-        aux.append("    Nova Tarefa\n");
-        aux.append("</button>\n");
-        aux.append("<button class=\"btn-add\" onclick=\"window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'\">\n");
-        aux.append("    Nova Tarefa\n");
-        aux.append("</button>\n");
 
         return aux.toString();
     }

@@ -1,8 +1,16 @@
 package br.root.app.dashboard;
 
-public class DashboardPagina {
+public class DashboardComponentes {
+    
+    public static String botoesAcion(){
+        StringBuilder aux = new StringBuilder();
 
-    public static String toHtml() {
+        aux.append("");
+
+        return aux.toString();
+    }
+
+    public static String Dashboard() {
         
         StringBuilder aux = new StringBuilder();
 

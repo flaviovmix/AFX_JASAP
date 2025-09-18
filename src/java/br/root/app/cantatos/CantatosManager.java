@@ -1,16 +1,18 @@
-package br.root.app.tarefas;
+package br.root.app.cantatos;
 
+import br.root.app.dashboard.*;
 import br.jasap.core.JasapRootManager;
 
-public class TarefasManager extends JasapRootManager {
-    
+public class CantatosManager extends JasapRootManager {
+
     @Override
     public void configGlobalFilters() throws Exception {
-    
+        
     }
 
     @Override
     public void config() throws Exception {
-        regAction(TarefasActions.class);
+        regAction(CantatosAction.class);
     }
+    
 }

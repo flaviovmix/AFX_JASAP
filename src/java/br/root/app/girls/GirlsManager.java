@@ -1,16 +1,17 @@
-package br.root.app.tarefas;
+package br.root.app.girls;
 
 import br.jasap.core.JasapRootManager;
 
-public class TarefasManager extends JasapRootManager {
-    
+public class GirlsManager extends JasapRootManager {
+
     @Override
     public void configGlobalFilters() throws Exception {
-    
+        
     }
 
     @Override
     public void config() throws Exception {
-        regAction(TarefasActions.class);
+        regAction(GirlsAction.class);
     }
+    
 }

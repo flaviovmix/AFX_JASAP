@@ -1,15 +1,15 @@
-package br.root.app.dashboard;
+package br.root.app.cantatos;
 
 import br.jasap.core.Effect;
 import br.jasap.core.JasapAct;
 import br.jasap.effect.Response;
 
-public class DashboardAction extends JasapAct {
+public class CantatosAction extends JasapAct {
     
     @Override
     public Effect execute() throws Exception {
-        update("main", DashboardComponentes.Dashboard());
-        update("cabecalho", DashboardComponentes.botoesAcion());
+        update("main", CantatosComponentes.Cantatos());
+        update("cabecalho", CantatosComponentes.botoesAcion());
         return new Response();
     } 
     

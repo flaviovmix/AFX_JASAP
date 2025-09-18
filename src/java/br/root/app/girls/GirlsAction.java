@@ -1,16 +1,16 @@
-package br.root.app;
+package br.root.app.girls;
 
 import br.jasap.core.Effect;
 import br.jasap.core.JasapAct;
 import br.jasap.effect.Response;
-import br.root.app.girls.GirlsComponentes;
 
-public class AppActions extends JasapAct {
-
+public class GirlsAction extends JasapAct {
+    
     @Override
     public Effect execute() throws Exception {
-        getOutput().write(AppHome.toHtml(GirlsComponentes.Girls()));
+        update("main", GirlsComponentes.Girls());
+        update("cabecalho", GirlsComponentes.botoesAcion());
         return new Response();
-    }
+    } 
     
 }
