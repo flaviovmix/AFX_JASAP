@@ -12,6 +12,7 @@ public class DashboardManager extends JasapRootManager {
     @Override
     public void config() throws Exception {
         regAction(DashboardAction.class);
+
     }
     
 }

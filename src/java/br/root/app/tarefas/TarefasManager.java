@@ -12,5 +12,8 @@ public class TarefasManager extends JasapRootManager {
     @Override
     public void config() throws Exception {
         regAction(TarefasActions.class);
+        
+        regAction(TarefasActions.TarefasAtivas.class);
+        regAction(TarefasActions.TarefasInativas.class);
     }
 }
