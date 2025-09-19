@@ -45,6 +45,5 @@ public class TarefaController {
     public String botoesNovaTarefas() throws Exception {
         TarefaComponentes componente = new TarefaComponentes(manager);
         return componente.botoesNovaTarefas();
-    }
-    
+    }   
 }

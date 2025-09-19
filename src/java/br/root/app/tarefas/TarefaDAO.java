@@ -72,5 +72,20 @@ public class TarefaDAO extends JasapDAO {
             e.printStackTrace();
         }
     }
+    
+    public void excluirTarefa(Integer id_tarefa) {
+
+        String sql = ("DELETE FROM tarefas WHERE id_tarefa = ?");
+        
+        try (PreparedStatement ps = getDataBase().getConn().prepareStatement(sql.toString())) {
+            
+            ps.setInt(1, id_tarefa);
+            
+            ps.executeUpdate();
+            
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
    
 }

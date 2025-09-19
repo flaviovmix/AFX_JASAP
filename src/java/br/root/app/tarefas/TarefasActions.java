@@ -41,4 +41,16 @@ public class TarefasActions extends JasapAct{
             return new Response();
           }  
     }
+    
+    public static class ExcluirTarefas extends TarefasActions{
+        @Override
+          public Effect execute() throws Exception {
+            TarefaController Controller = new TarefaController(getManager());
+            getInput().printParameters();
+            TarefaDAO dao = new TarefaDAO(getManager());
+            dao.excluirTarefa(getInput().getInteger("ID"));
+             update("task-list", Controller.tarefas(true));
+            return new Response();
+          }  
+    }
 }

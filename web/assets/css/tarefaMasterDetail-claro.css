@@ -32,6 +32,10 @@ select {
   margin-top: 25px;
 }
 
+.title-detalhe-tarefa {
+    margin-top: 55px;
+}
+
 .area-principal, .detail {
   background: #fff;
   padding: 20px;
@@ -89,16 +93,28 @@ button {
 .voltar {
   position: absolute;
   top: 15px;
-  background-color: #f9e79f;
   color: #000;
   width: 100px; 
 }
 
+.vermelho {
+    background-color: red !important;
+}
+
+.verde {
+    background-color: #2ecc71 !important;
+}
+
+.amarelo {
+    background-color: #f9e79f !important;
+}
+
 .btn-add {
   position: absolute;
-  top: 15px;
-  background-color: #2ecc71;
-  margin-left: 110px;
+  top: 11px;
+  margin-left: 45px;
+  height: 35px;
+  width: 150px;
   color: white;
   border: none;
   padding: 8px 14px;

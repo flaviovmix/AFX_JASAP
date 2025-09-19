@@ -24,6 +24,7 @@ public class TarefaComponentes {
         StringBuilder aux = new StringBuilder();
 
         String AtivoInativo = ativoOuInativo ? "" : "opaco";
+        String checked = ativoOuInativo ? "" : "checked";
         
         TarefaDAO tarefaDao = new TarefaDAO(manager);
         List<TarefaBean> lista = tarefaDao.listarTarefas(ativoOuInativo);
@@ -53,12 +54,13 @@ public class TarefaComponentes {
             aux.append("                      <input type=\"hidden\" name=\"estado_atual\" value=\"true\">\n");
             aux.append("                      <input type=\"hidden\" name=\"ativa\" value=\"0\">\n");
             aux.append("                      <input type=\"hidden\" name=\"id_tarefa\" value=\"118\">\n");
-            aux.append("                      <input type=\"checkbox\" name=\"ativo\">\n");
+            aux.append("                      <input type=\"checkbox\" name=\"ativo\"" + checked + ">\n");
             aux.append("                    </form>\n");
             aux.append("                  </div>\n");
             aux.append("                </label>\n");
             aux.append("              </div>\n");
-            aux.append("              <a href=\"#\" class=\"deletar-link\">\n");
+            aux.append("              <a href=\"#\" class=\"deletar-link\"  onclick=\"alert();"+ link(TarefasActions.ExcluirTarefas.class).putInteger("ID", tarefa.getId_tarefa()).ajax() + "\">\n");
+            
             aux.append("                <i class=\"fas fa-trash\"></i>\n");
             aux.append("              </a>\n");
             aux.append("            </div>\n");
@@ -186,15 +188,15 @@ public class TarefaComponentes {
         aux.append("        </div>\n");
         aux.append("\n");
         aux.append("        <div class=\"botoes\">\n");
-        aux.append("          <button id=\"btn-editar\" type=\"reset\" class=\"editar\" onclick=\"link('#')\">Editar</button>\n");
+        aux.append("          <button id=\"btn-editar\" type=\"reset\" class=\"editar verde\" onclick=\"link('#')\">Salvar</button>\n");
         aux.append("        </div>\n");
         aux.append("\n");
         aux.append("      </form>\n");
         aux.append("\n");
-        aux.append("      <hr>\n");
+        
         aux.append("\n");
-        aux.append("      <h2>Detalhes da Tarefa</h2>\n");
-        aux.append("      <form id=\"form-subtarefa\" class=\"form\" action=\"#\" method=\"post\">\n");
+        aux.append("      <h2 class=\" opaco title-detalhe-tarefa \">Detalhes da Tarefa</h2>\n");
+        aux.append("      <form id=\"form-subtarefa\" class=\"form opaco\" action=\"#\" method=\"post\">\n");
         aux.append("        <div>\n");
         aux.append("          <input type=\"hidden\" name=\"fk_tarefa\" id=\"fk_tarefa\" value=\"118\">\n");
         aux.append("\n");
@@ -211,29 +213,12 @@ public class TarefaComponentes {
         aux.append("    <!-- DETAIL -->\n");
         aux.append("    <div id=\"area-detail\" class=\"detail\">\n");
         aux.append("\n");
-        aux.append("      <h3>Lista de detalhes</h3>\n");
-        aux.append("      <ul id=\"lista-tarefas\">\n");
-        aux.append("\n");
-        aux.append("        <li>\n");
-        aux.append("          <div>\n");
-        aux.append("            <small> 15 ago - 2025 </small><br>\n");
-        aux.append("            <!--<small> 2025-08-14 </small><br>-->\n");
-        aux.append("            <small>RESOVOLVER PENDÊNCIA 1</small>\n");
-        aux.append("          </div>\n");
-        aux.append("          <a class=\"icone-lixeira\" href=\"#\" onclick=\"openModalDeletar(247, 118, 'RESOVOLVER PENDENCIA 1'); return false;\">\n");
-        aux.append("            <i class=\"fas fa-trash\"></i>\n");
-        aux.append("          </a>\n");
-        aux.append("        </li>\n");
-        aux.append("\n");
-        aux.append("      </ul>\n");
-        aux.append("\n");
+        aux.append("      <h3 class=\" opaco \" >Lista de detalhes</h3>\n");
+        
         aux.append("    </div>\n");
         aux.append("\n");
         aux.append("  </div>\n");
         return aux.toString();
     }
-    
-    
-    
     
 }
