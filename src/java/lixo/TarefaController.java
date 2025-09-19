@@ -1,6 +1,7 @@
-package br.root.app.tarefas;
+package lixo;
 
 import br.jasap.core.AppManager;
+import br.root.app.tarefas.TarefaComponentes;
 import static br.root.app.tarefas.TarefaComponentes.tarefasGuias;
 import static br.root.app.tarefas.TarefaComponentes.tarefasPaginacao;
 

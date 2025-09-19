@@ -20,6 +20,18 @@ public class TarefaComponentes {
         this.manager = manager;
     }    
     
+    public String listaTarefas(boolean ativoOuInativo) throws Exception {
+        StringBuilder aux = new StringBuilder();
+        
+            TarefaComponentes Componentes = new TarefaComponentes(manager);
+        
+            aux.append( tarefasGuias() );
+            aux.append( Componentes.TarefasIndividuais(ativoOuInativo) );
+            aux.append( tarefasPaginacao() );
+
+        return aux.toString();
+    }
+    
     public String TarefasIndividuais(boolean ativoOuInativo) throws Exception {
         StringBuilder aux = new StringBuilder();
 
@@ -59,7 +71,7 @@ public class TarefaComponentes {
             aux.append("                  </div>\n");
             aux.append("                </label>\n");
             aux.append("              </div>\n");
-            aux.append("              <a href=\"#\" class=\"deletar-link\"  onclick=\"alert();"+ link(TarefasActions.ExcluirTarefas.class).putInteger("ID", tarefa.getId_tarefa()).ajax() + "\">\n");
+            aux.append("              <a href=\"#\" class=\"deletar-link\"  onclick=\""+ link(TarefasActions.ExcluirTarefas.class).putInteger("ID", tarefa.getId_tarefa()).ajax() + "\">\n");
             
             aux.append("                <i class=\"fas fa-trash\"></i>\n");
             aux.append("              </a>\n");
