@@ -84,10 +84,10 @@ public class TarefaComponentes {
     }
     
     //cria os botões da pagina
-    public static String botoesAcion(){
+    public static String botoesAcion() throws Exception{
         StringBuilder aux = new StringBuilder();
 
-        aux.append("<button class=\"btn-add\" onclick=\"window.location.href='<%= url(detalhesTarefasActions.Listar.class) %>'\">\n");
+        aux.append("<button class=\"btn-add\" onclick=\""+link(TarefasActions.NovaTarefa.class).ajax() +"\">\n");
         aux.append("    Nova Tarefa\n");
         aux.append("</button>\n");
 
@@ -138,6 +138,102 @@ public class TarefaComponentes {
         aux.append("  </div>\n");
         aux.append("</div>\n");
         
+        return aux.toString();
+    }
+    
+    
+    public String novaTarefa() {
+        
+        StringBuilder aux = new StringBuilder();
+
+        aux.append("  <div class=\"container-tarefa-master-detail\">\n");
+        aux.append("\n");
+        aux.append("    <!-- MASTER -->\n");
+        aux.append("    <div class=\"area-principal\">\n");
+        aux.append("\n");
+        aux.append("      <h2>Tarefa</h2>\n");
+        aux.append("\n");
+        aux.append("      <form id=\"formTarefa\" method=\"get\" action=\"#\">\n");
+        aux.append("\n");
+        aux.append("        <div id=\"formTarefa\" class=\"\">\n");
+        aux.append("          <input type=\"hidden\" name=\"id_tarefa\" id=\"id_tarefa\" value=\"118\">\n");
+        aux.append("          <input type=\"text\" name=\"titulo\" id=\"titulo\" placeholder=\"Título da tarefa\" value=\"\" required>\n");
+        aux.append("          <input type=\"text\" name=\"responsavel\" id=\"responsavel\" placeholder=\"Responsável da tarefa\" value=\"\" required>\n");
+        aux.append("\n");
+        aux.append("          <textarea name=\"descricao\" id=\"descricao\" placeholder=\"Descrição da tarefa\"></textarea>\n");
+        aux.append("          \n");
+        aux.append("          <div class=\"area-radio\">\n");
+        aux.append("\n");
+        aux.append("            <div class=\"radio-group\">\n");
+        aux.append("              <span class=\"texto-prioridade\">Prioridade</span>\n");
+        aux.append("              <label class=\"radio radio--baixa\">\n");
+        aux.append("                <input type=\"radio\" name=\"prioridade\" value=\"baixa\" required checked>\n");
+        aux.append("                <span class=\"dot\"></span>\n");
+        aux.append("                <span>Baixa</span>\n");
+        aux.append("              </label>\n");
+        aux.append("\n");
+        aux.append("              <label class=\"radio radio--media\">\n");
+        aux.append("                <input type=\"radio\" name=\"prioridade\" value=\"media\">\n");
+        aux.append("                <span class=\"dot\"></span>\n");
+        aux.append("                <span>Média</span>\n");
+        aux.append("              </label>\n");
+        aux.append("\n");
+        aux.append("              <label class=\"radio radio--alta\">\n");
+        aux.append("                <input type=\"radio\" name=\"prioridade\" value=\"alta\">\n");
+        aux.append("                <span class=\"dot\"></span>\n");
+        aux.append("                <span>Alta</span>\n");
+        aux.append("              </label>\n");
+        aux.append("            </div>\n");
+        aux.append("          </div>\n");
+        aux.append("          <label for=\"data\" class=\"label-data-prevista\">Data prevista para conclusão</label>\n");
+        aux.append("          <input type=\"date\" name=\"data_conclusao\" id=\"data_conclusao\" value=\"\">\n");
+        aux.append("        </div>\n");
+        aux.append("\n");
+        aux.append("        <div class=\"botoes\">\n");
+        aux.append("          <button id=\"btn-editar\" type=\"reset\" class=\"editar\" onclick=\"link('#')\">Editar</button>\n");
+        aux.append("        </div>\n");
+        aux.append("\n");
+        aux.append("      </form>\n");
+        aux.append("\n");
+        aux.append("      <hr>\n");
+        aux.append("\n");
+        aux.append("      <h2>Detalhes da Tarefa</h2>\n");
+        aux.append("      <form id=\"form-subtarefa\" class=\"form\" action=\"#\" method=\"post\">\n");
+        aux.append("        <div>\n");
+        aux.append("          <input type=\"hidden\" name=\"fk_tarefa\" id=\"fk_tarefa\" value=\"118\">\n");
+        aux.append("\n");
+        aux.append("          <div class=\"campo\">\n");
+        aux.append("            <textarea name=\"descricao\" id=\"descricaoDetail\" placeholder=\"Digite a descrição...\" required></textarea>\n");
+        aux.append("          </div>\n");
+        aux.append("\n");
+        aux.append("          <button type=\"submit\" class=\"salvar\">Adicionar subtarefa</button>\n");
+        aux.append("        </div>\n");
+        aux.append("      </form>\n");
+        aux.append("\n");
+        aux.append("    </div>\n");
+        aux.append("\n");
+        aux.append("    <!-- DETAIL -->\n");
+        aux.append("    <div id=\"area-detail\" class=\"detail\">\n");
+        aux.append("\n");
+        aux.append("      <h3>Lista de detalhes</h3>\n");
+        aux.append("      <ul id=\"lista-tarefas\">\n");
+        aux.append("\n");
+        aux.append("        <li>\n");
+        aux.append("          <div>\n");
+        aux.append("            <small> 15 ago - 2025 </small><br>\n");
+        aux.append("            <!--<small> 2025-08-14 </small><br>-->\n");
+        aux.append("            <small>RESOVOLVER PENDÊNCIA 1</small>\n");
+        aux.append("          </div>\n");
+        aux.append("          <a class=\"icone-lixeira\" href=\"#\" onclick=\"openModalDeletar(247, 118, 'RESOVOLVER PENDENCIA 1'); return false;\">\n");
+        aux.append("            <i class=\"fas fa-trash\"></i>\n");
+        aux.append("          </a>\n");
+        aux.append("        </li>\n");
+        aux.append("\n");
+        aux.append("      </ul>\n");
+        aux.append("\n");
+        aux.append("    </div>\n");
+        aux.append("\n");
+        aux.append("  </div>\n");
         return aux.toString();
     }
     

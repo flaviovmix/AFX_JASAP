@@ -23,7 +23,7 @@ public class DashboardComponentes {
         aux.append("  <div class=\"dashboard-grid\">\n");
 
         // Card Tarefas
-        aux.append("    <div class=\"dashboard-card\">\n");
+        aux.append("    <div class=\"dashboard-card \">\n");
         aux.append("      <div class=\"dashboard-icon bg-tarefas\">\n");
         aux.append("        <i class=\"fas fa-tasks\"></i>\n");
         aux.append("      </div>\n");
@@ -33,7 +33,7 @@ public class DashboardComponentes {
         aux.append("    </div>\n");
 
         // Card Contatos
-        aux.append("    <div class=\"dashboard-card\">\n");
+        aux.append("    <div class=\"dashboard-card opaco\">\n");
         aux.append("      <div class=\"dashboard-icon bg-contatos\">\n");
         aux.append("        <i class=\"fas fa-address-book\"></i>\n");
         aux.append("      </div>\n");
@@ -43,7 +43,7 @@ public class DashboardComponentes {
         aux.append("    </div>\n");
 
         // Card com Carousel (Garotas, Atletas, Vegetais)
-        aux.append("    <div class=\"dashboard-card\">\n");
+        aux.append("    <div class=\"dashboard-card opaco\">\n");
         aux.append("      <div class=\"dashboard-carousel\">\n");
 
         // Slide 1
@@ -84,7 +84,7 @@ public class DashboardComponentes {
         aux.append("    </div>\n");
 
         // Card Relatórios
-        aux.append("    <div class=\"dashboard-card\">\n");
+        aux.append("    <div class=\"dashboard-card opaco\">\n");
         aux.append("      <div class=\"dashboard-icon bg-relatorios\">\n");
         aux.append("        <i class=\"fas fa-chart-bar\"></i>\n");
         aux.append("      </div>\n");
@@ -94,7 +94,7 @@ public class DashboardComponentes {
         aux.append("    </div>\n");
 
         // Card Projetos
-        aux.append("    <div class=\"dashboard-card\">\n");
+        aux.append("    <div class=\"dashboard-card opaco\">\n");
         aux.append("      <div class=\"dashboard-icon bg-projetos\">\n");
         aux.append("        <i class=\"fas fa-project-diagram\"></i>\n");
         aux.append("      </div>\n");
@@ -104,7 +104,7 @@ public class DashboardComponentes {
         aux.append("    </div>\n");
 
         // Card Configurações
-        aux.append("    <div class=\"dashboard-card\">\n");
+        aux.append("    <div class=\"dashboard-card opaco\">\n");
         aux.append("      <div class=\"dashboard-icon bg-config\">\n");
         aux.append("        <i class=\"fas fa-cogs\"></i>\n");
         aux.append("      </div>\n");

@@ -31,4 +31,13 @@ public class TarefasActions extends JasapAct{
             return new Response();
           }  
     }
+    
+    public static class NovaTarefa extends TarefasActions{
+        @Override
+          public Effect execute() throws Exception {
+            TarefaComponentes TarefaComponentes = new TarefaComponentes(getManager());
+            update("main", TarefaComponentes.novaTarefa());
+            return new Response();
+          }  
+    }
 }
