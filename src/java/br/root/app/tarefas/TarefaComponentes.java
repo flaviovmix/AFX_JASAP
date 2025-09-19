@@ -18,25 +18,11 @@ public class TarefaComponentes {
     
     public TarefaComponentes(AppManager manager) {
         this.manager = manager;
-    }
-  
-    public String listaTarefas(boolean ativoOuInativo) throws Exception {
-
-        StringBuilder aux = new StringBuilder();
-        
-            aux.append( tarefasGuias() );
-            aux.append( TarefasIndividuais(ativoOuInativo) );
-            aux.append( tarefasPaginacao() );
-
-        return aux.toString();
-    }
-    
+    }    
     
     public String TarefasIndividuais(boolean ativoOuInativo) throws Exception {
         StringBuilder aux = new StringBuilder();
-        
-        String check_ativa = (ativoOuInativo ? " opaco" : "");
-        String check_inativa = (!ativoOuInativo ? " opaco" : "");
+
         String AtivoInativo = ativoOuInativo ? "" : "opaco";
         
         TarefaDAO tarefaDao = new TarefaDAO(manager);
@@ -84,11 +70,21 @@ public class TarefaComponentes {
     }
     
     //cria os botões da pagina
-    public static String botoesAcion() throws Exception{
+    public static String botoesTarefas() throws Exception{
         StringBuilder aux = new StringBuilder();
 
         aux.append("<button class=\"btn-add\" onclick=\""+link(TarefasActions.NovaTarefa.class).ajax() +"\">\n");
         aux.append("    Nova Tarefa\n");
+        aux.append("</button>\n");
+
+        return aux.toString();
+    }
+    
+    public static String botoesNovaTarefas() throws Exception{
+        StringBuilder aux = new StringBuilder();
+
+        aux.append("<button class=\"btn-add vermelho\" onclick=\""+link(TarefasActions.class).ajax() +"\">\n");
+        aux.append("    Cancelar\n");
         aux.append("</button>\n");
 
         return aux.toString();

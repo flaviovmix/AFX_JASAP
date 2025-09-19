@@ -8,17 +8,17 @@ public class TarefasActions extends JasapAct{
 
     @Override
     public Effect execute() throws Exception {
-        TarefaComponentes TarefaComponentes = new TarefaComponentes(getManager());
-        update("main", TarefaComponentes.listaTarefas(true));
-        update("cabecalho", TarefaComponentes.botoesAcion());
+        TarefaController Controller = new TarefaController(getManager());
+        update("main", Controller.listaTarefas(true));
+        update("cabecalho", Controller.botoesTarefas());
         return new Response();
     }
     
     public static class TarefasAtivas extends TarefasActions{
         @Override
           public Effect execute() throws Exception {
-            TarefaComponentes TarefaComponentes = new TarefaComponentes(getManager());
-            update("task-list", TarefaComponentes.TarefasIndividuais(true));
+            TarefaController Controller = new TarefaController(getManager());
+            update("task-list", Controller.tarefas(true));
             return new Response();
           }  
     }
@@ -26,8 +26,8 @@ public class TarefasActions extends JasapAct{
     public static class TarefasInativas extends TarefasActions{
         @Override
           public Effect execute() throws Exception {
-            TarefaComponentes TarefaComponentes = new TarefaComponentes(getManager());
-            update("task-list", TarefaComponentes.TarefasIndividuais(false));
+            TarefaController Controller = new TarefaController(getManager());
+            update("task-list", Controller.tarefas(false));
             return new Response();
           }  
     }
@@ -35,8 +35,9 @@ public class TarefasActions extends JasapAct{
     public static class NovaTarefa extends TarefasActions{
         @Override
           public Effect execute() throws Exception {
-            TarefaComponentes TarefaComponentes = new TarefaComponentes(getManager());
-            update("main", TarefaComponentes.novaTarefa());
+            TarefaController Controller = new TarefaController(getManager());
+            update("main", Controller.novaTarefa());
+            update("cabecalho", Controller.botoesNovaTarefas());
             return new Response();
           }  
     }

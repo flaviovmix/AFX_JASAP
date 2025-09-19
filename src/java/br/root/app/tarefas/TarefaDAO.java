@@ -22,9 +22,9 @@ public class TarefaDAO extends JasapDAO {
         List<TarefaBean> lista = new ArrayList<>();
         String sql = "SELECT * FROM tarefas  WHERE ativo = ? ORDER BY id_tarefa";
         
-        try (PreparedStatement instrucaoPreparada = getDataBase().getConn().prepareStatement(sql.toString())) {
-            instrucaoPreparada.setBoolean(1, ativoOuInativo);
-            try (ResultSet resultado = instrucaoPreparada.executeQuery()) {
+        try (PreparedStatement ps = getDataBase().getConn().prepareStatement(sql.toString())) {
+            ps.setBoolean(1, ativoOuInativo);
+            try (ResultSet resultado = ps.executeQuery()) {
                 while (resultado.next()) {
                     TarefaBean tarefa = new TarefaBean();
                     
@@ -45,6 +45,32 @@ public class TarefaDAO extends JasapDAO {
             erro.printStackTrace();
         }
         return lista;
+    }
+    
+    public void adicionarTarefa(TarefaBean tarefa) {
+
+        String sql = "INSERT INTO tarefas (titulo, descricao, status, prioridade, responsavel, data_conclusao) " +
+                     "VALUES (?, ?, ?, ?, ?, ?) RETURNING id_tarefa;";
+
+        try (PreparedStatement ps = getDataBase().getConn().prepareStatement(sql.toString())) {
+
+            ps.setString(1, tarefa.getTitulo());
+            ps.setString(2, tarefa.getDescricao());
+            ps.setString(3, tarefa.getStatus());
+            ps.setString(4, tarefa.getPrioridade());
+            ps.setString(5, tarefa.getResponsavel());
+            ps.setDate(6, tarefa.getData_conclusao());
+
+            try (ResultSet rs = ps.executeQuery()) {
+
+                if (rs.next()) {
+                    tarefa.setId_tarefa(rs.getInt("id_tarefa"));
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
    
 }

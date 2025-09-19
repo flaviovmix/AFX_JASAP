@@ -12,6 +12,8 @@ public class TarefaBean {
     private Date data_criacao;
     private Date data_conclusao;
     private boolean ativo;
+    
+    private Integer quantidade_de_subtarefas;
 
     public int getId_tarefa() {
         return id_tarefa;
@@ -74,6 +76,16 @@ public class TarefaBean {
     }
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+    
+    // Retorna a quantidade de subtarefas associadas a esta tarefa.
+    public Integer getQuantidade_de_subtarefas() {
+        return quantidade_de_subtarefas;
+    }
+
+    // Define a quantidade de subtarefas associadas a esta tarefa.
+    public void setQuantidade_de_subtarefas(Integer valor) {
+        this.quantidade_de_subtarefas = valor;
     }
 
 }
