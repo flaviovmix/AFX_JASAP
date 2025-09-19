@@ -1,5 +1,8 @@
 package br.root.app.dashboard;
 
+import static br.root.app.AppHome.link;
+import br.root.app.tarefas.TarefasActions;
+
 public class DashboardComponentes {
     
     public static String botoesAcion(){
@@ -10,7 +13,7 @@ public class DashboardComponentes {
         return aux.toString();
     }
 
-    public static String Dashboard() {
+    public static String Dashboard() throws Exception {
         
         StringBuilder aux = new StringBuilder();
 
@@ -26,7 +29,7 @@ public class DashboardComponentes {
         aux.append("      </div>\n");
         aux.append("      <h5 class=\"card-title\">Tarefas</h5>\n");
         aux.append("      <p class=\"card-text\">Gerencie suas tarefas ativas e concluídas.</p>\n");
-        aux.append("      <a href=\"#\" class=\"dashboard-btn btn-green\">Acessar</a>\n");
+        aux.append("      <a href=\"#\" class=\"dashboard-btn btn-green\" onclick=\""+link(TarefasActions.class).ajax() + "\">Acessar</a>\n");
         aux.append("    </div>\n");
 
         // Card Contatos
