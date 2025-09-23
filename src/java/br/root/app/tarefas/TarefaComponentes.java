@@ -4,7 +4,7 @@ import br.jasap.core.AppManager;
 import static br.jasap.core.AppManager.url;
 import br.jasap.util.Link;
 import br.jasap.util.Submit;
-import br.root.app.tarefas.TarefasActions.AdicionarTarefa;
+import br.root.app.tarefas.TarefasActions.*;
 import java.util.List;
 
 public class TarefaComponentes {
@@ -13,7 +13,7 @@ public class TarefaComponentes {
         return new Link(url(action));
     }
     
-    public static Submit submit(Class<?> action) throws Exception {
+    public static Submit submit(Class action) throws Exception {
         return new Submit(url(action));
     }
 
@@ -77,7 +77,7 @@ public class TarefaComponentes {
             aux.append("                  </div>\n");
             aux.append("                </label>\n");
             aux.append("              </div>\n");
-            aux.append("              <a href=\"#\" class=\"deletar-link\"  onclick=\""+ link(TarefasActions.ExcluirTarefas.class).putInteger("ID", tarefa.getId_tarefa()).ajax() + "\">\n");
+            aux.append("              <a href=\"#\" class=\"deletar-link\"  onclick=\""+ link(ExcluirTarefas.class).putInteger("ID", tarefa.getId_tarefa()).ajax() + "\">\n");
             
             aux.append("                <i class=\"fas fa-trash\"></i>\n");
             aux.append("              </a>\n");
@@ -125,13 +125,13 @@ public class TarefaComponentes {
         aux.append("      <input type=\"radio\" name=\"tabs\" id=\"tab-ativas\" checked>\n\n");
 
         aux.append("        <label \">\n");
-        aux.append("          <a href=\"#\" id=\"guia-ativa\" onclick=\""+link(TarefasActions.TarefasAtivas.class).ajax() + "\" class=\"link-sem-estilo check\">\n");
+        aux.append("          <a href=\"#\" id=\"guia-ativa\" onclick=\""+link(TarefasAtivas.class).ajax() + "\" class=\"link-sem-estilo check\">\n");
         aux.append("            Ativas\n");
         aux.append("          </a>\n");
         aux.append("        </label>\n\n");
 
         aux.append("        <label \">\n");
-        aux.append("          <a href=\"#\" id=\"guia-inativa\" onclick=\""+link(TarefasActions.TarefasInativas.class).ajax() + "\" class=\"link-sem-estilo\">\n");
+        aux.append("          <a href=\"#\" id=\"guia-inativa\" onclick=\""+link(TarefasInativas.class).ajax() + "\" class=\"link-sem-estilo\">\n");
         aux.append("            Inativas\n");
         aux.append("          </a>\n");
         aux.append("        </label>\n\n");
@@ -207,7 +207,7 @@ public class TarefaComponentes {
         aux.append("\n");
         aux.append("        <div class=\"botoes\">\n");
         
-        aux.append("          <button id=\"btn-editar\" type=\"reset\" class=\"editar verde\" onclick=\""+ submit(AdicionarTarefa.class).ajax() + " \">Salvar</button>\n");
+        aux.append("          <button id=\"btn-editar\" type=\"reset\" class=\"editar verde\" onclick=\"" + submit(AdicionarTarefa.class).ajax() + " \">Salvar</button>\n");
        
         aux.append("        </div>\n");
         aux.append("\n");
