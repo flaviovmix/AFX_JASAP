@@ -3,6 +3,8 @@ package br.root.app.tarefas;
 import br.jasap.core.AppManager;
 import static br.jasap.core.AppManager.url;
 import br.jasap.util.Link;
+import br.jasap.util.Submit;
+import br.root.app.tarefas.TarefasActions.AdicionarTarefa;
 import java.util.List;
 
 public class TarefaComponentes {
@@ -11,6 +13,10 @@ public class TarefaComponentes {
         return new Link(url(action));
     }
     
+    public static Submit submit(Class<?> action) throws Exception {
+        return new Submit(url(action));
+    }
+
     public AppManager manager;
     
     public TarefaComponentes() {
@@ -119,13 +125,13 @@ public class TarefaComponentes {
         aux.append("      <input type=\"radio\" name=\"tabs\" id=\"tab-ativas\" checked>\n\n");
 
         aux.append("        <label \">\n");
-        aux.append("          <a href=\"#\" onclick=\""+link(TarefasActions.TarefasAtivas.class).ajax() + "\" class=\"link-sem-estilo\">\n");
+        aux.append("          <a href=\"#\" id=\"guia-ativa\" onclick=\""+link(TarefasActions.TarefasAtivas.class).ajax() + "\" class=\"link-sem-estilo check\">\n");
         aux.append("            Ativas\n");
         aux.append("          </a>\n");
         aux.append("        </label>\n\n");
 
         aux.append("        <label \">\n");
-        aux.append("          <a href=\"#\" onclick=\""+link(TarefasActions.TarefasInativas.class).ajax() + "\" class=\"link-sem-estilo\">\n");
+        aux.append("          <a href=\"#\" id=\"guia-inativa\" onclick=\""+link(TarefasActions.TarefasInativas.class).ajax() + "\" class=\"link-sem-estilo\">\n");
         aux.append("            Inativas\n");
         aux.append("          </a>\n");
         aux.append("        </label>\n\n");
@@ -152,7 +158,7 @@ public class TarefaComponentes {
     }
     
     
-    public String novaTarefa() {
+    public String novaTarefa() throws Exception {
         
         StringBuilder aux = new StringBuilder();
 
@@ -167,10 +173,10 @@ public class TarefaComponentes {
         aux.append("\n");
         aux.append("        <div id=\"formTarefa\" class=\"\">\n");
         aux.append("          <input type=\"hidden\" name=\"id_tarefa\" id=\"id_tarefa\" value=\"118\">\n");
-        aux.append("          <input type=\"text\" name=\"titulo\" id=\"titulo\" placeholder=\"Título da tarefa\" value=\"\" required>\n");
-        aux.append("          <input type=\"text\" name=\"responsavel\" id=\"responsavel\" placeholder=\"Responsável da tarefa\" value=\"\" required>\n");
+        aux.append("          <input type=\"text\" name=\"titulo\" id=\"titulo\" placeholder=\"Título da tarefa\" value=\"\" required vsubmit=1>\n");
+        aux.append("          <input type=\"text\" name=\"responsavel\" id=\"responsavel\" placeholder=\"Responsável da tarefa\" value=\"\" required vsubmit=1>\n");
         aux.append("\n");
-        aux.append("          <textarea name=\"descricao\" id=\"descricao\" placeholder=\"Descrição da tarefa\"></textarea>\n");
+        aux.append("          <textarea name=\"descricao\" id=\"descricao\" placeholder=\"Descrição da tarefa\" vsubmit=1></textarea>\n");
         aux.append("          \n");
         aux.append("          <div class=\"area-radio\">\n");
         aux.append("\n");
@@ -200,7 +206,9 @@ public class TarefaComponentes {
         aux.append("        </div>\n");
         aux.append("\n");
         aux.append("        <div class=\"botoes\">\n");
-        aux.append("          <button id=\"btn-editar\" type=\"reset\" class=\"editar verde\" onclick=\"link('#')\">Salvar</button>\n");
+        
+        aux.append("          <button id=\"btn-editar\" type=\"reset\" class=\"editar verde\" onclick=\""+ submit(AdicionarTarefa.class).ajax() + " \">Salvar</button>\n");
+       
         aux.append("        </div>\n");
         aux.append("\n");
         aux.append("      </form>\n");
