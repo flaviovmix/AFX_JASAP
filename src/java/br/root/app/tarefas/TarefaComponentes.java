@@ -68,15 +68,18 @@ public class TarefaComponentes {
             aux.append("                <label class=\"checkbox-container\">\n");
             aux.append("                  <div class=\"usuario_concluir\">\n");
             aux.append("                    <div class=\"assigned\"><strong>" + tarefa.getData_conclusao() + "</strong></div>\n");
+            
             aux.append("                    <form action=\"#\" method=\"get\" style=\"display:inline;\">\n");
             aux.append("                      <input type=\"hidden\" name=\"estado_atual\" value=\"true\">\n");
             aux.append("                      <input type=\"hidden\" name=\"ativa\" value=\"0\">\n");
-            aux.append("                      <input type=\"hidden\" name=\"id_tarefa\" value=\"118\">\n");
+            aux.append("                      <input type=\"hidden\" name=\"id_tarefa\" value=\"" + tarefa.getId_tarefa() + "\">\n");
             aux.append("                      <input type=\"checkbox\" name=\"ativo\"" + checked + ">\n");
             aux.append("                    </form>\n");
+            
             aux.append("                  </div>\n");
             aux.append("                </label>\n");
             aux.append("              </div>\n");
+            
             aux.append("              <a href=\"#\" class=\"deletar-link\"  onclick=\""+ link(ExcluirTarefas.class).putInteger("ID", tarefa.getId_tarefa()).ajax() + "\">\n");
             
             aux.append("                <i class=\"fas fa-trash\"></i>\n");
