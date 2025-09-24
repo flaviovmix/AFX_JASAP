@@ -1,3 +1,22 @@
+:root {
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --ink: #0f172a;
+    --muted: #6b7280;
+    --brand: #5b8def;
+    --brand-2: #8a5bff;
+    --accent: #22c55e;
+    --ring: rgba(91, 141, 239, .35);
+}
+
+html,
+body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+
 .nav-link {
     position: relative;
     color: inherit;
@@ -16,37 +35,42 @@
 }
 
 .hero {
-    height: 55vh;
-    max-height: 500px;
-    /* altura máxima = 25% da tela */
+    position: relative;
+    overflow: clip;
+    border-radius: 1.5rem;
+    background: radial-gradient(1200px 600px at 10% 20%, #ffffff 0%, #eef4ff 38%, #ecf3ff 40%, #eaf0ff 42%, #e7eeff 45%, #e3ecff 48%, #e0eaff 53%, #dbe6ff 60%, #d6e3ff 70%, #d2e1ff 80%, #cfe0ff 100%);
+    box-shadow: 0 10px 30px rgba(91, 141, 239, .15);
 }
 
-.hero .row {
-    align-items: flex-start !important;
-    /* força topo */
-}
+.hero-img {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    padding: 0;
 
-.badge-new {
-    background: linear-gradient(110deg, var(--brand), var(--brand-2));
-    font-size: 1rem;
-    padding: 1rem 8rem !important;
 }
 
 .nav-link:hover::after {
     width: 100%;
 }
 
-.hero-img {
-    padding: 0;
-    /* tira espaços internos */
-    height: 100%;
-    
-    /* força a coluna a ter altura cheia */
-}
-
 .hero-img img {
-    width: 100%;
+    height: 100% !important;
     object-fit: cover;
     object-position: center;
 }
 
+.hero .row {
+    height: 100%;
+    align-items: stretch !important;
+}
+
+.hero-img video {
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    object-position: center;
+}

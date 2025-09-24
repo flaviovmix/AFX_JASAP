@@ -1,0 +1,57 @@
+/* XS – celulares (até 575.98px) */
+@media (max-width: 575.98px) {
+    .hero-img video {
+        height: 45vh !important;
+    }
+
+    .titulo-principal {
+        margin-top: -50px;
+        font-size: 1.5rem;
+    }
+}
+
+/* SM – ≥576px até 767.98px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .hero-img video {
+        height: 45vh !important;
+    }
+}
+
+/* MD – ≥768px até 991.98px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .hero-img video {
+        height: 45vh !important;
+    }
+}
+
+/* LG – ≥992px até 1199.98px */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .hero {
+        height: 45vh;
+        max-height: 550px;
+    }
+}
+
+/* XL – ≥1200px até 1399.98px */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .hero {
+        height: 45vh;
+        max-height: 550px;
+    }
+
+    .area-botoes-hero {
+        margin-top: 30px;
+    }
+}
+
+/* XXL – ≥1400px */
+@media (min-width: 1400px) {
+    .hero {
+        height: 55vh;
+        max-height: 450px;
+    }
+
+    .area-botoes-hero {
+        margin-top: 50px;
+    }
+}

@@ -17,3 +17,7 @@ dist/
 *.tmp
 .DS_Store
 Thumbs.db
+
+#videos
+web/assets/img/JOGO 1.mp4
+web/assets/img/Carros 3.mkv

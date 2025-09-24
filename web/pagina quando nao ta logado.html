@@ -14,54 +14,22 @@
         rel="stylesheet">
 
     <!-- Css personalizado -->
+
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsividade.css">
 
     <title>AFX</title>
 
     <style>
-        :root {
-            --bg: #f7f9fc;
-            --card: #ffffff;
-            --ink: #0f172a;
-            --muted: #6b7280;
-            --brand: #5b8def;
-            --brand-2: #8a5bff;
-            --accent: #22c55e;
-            --ring: rgba(91, 141, 239, .35);
-        }
 
-        html,
-        body {
-            background: var(--bg);
-            color: var(--ink);
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
-        }
+
 
         /* --- Hero with cosmic gradient and floating stars --- */
-        .hero {
-            position: relative;
-            overflow: clip;
-            border-radius: 1.5rem;
-            background: radial-gradient(1200px 600px at 10% 20%, #ffffff 0%, #eef4ff 38%, #ecf3ff 40%, #eaf0ff 42%, #e7eeff 45%, #e3ecff 48%, #e0eaff 53%, #dbe6ff 60%, #d6e3ff 70%, #d2e1ff 80%, #cfe0ff 100%);
-            box-shadow: 0 10px 30px rgba(91, 141, 239, .15);
-        }
 
-        .hero::before,
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: -20%;
-            background: radial-gradient(600px 300px at 80% 30%, rgba(138, 91, 255, .15), transparent 60%),
-                radial-gradient(500px 260px at 30% 70%, rgba(91, 141, 239, .18), transparent 70%);
-            filter: blur(10px);
-            animation: drift 40s linear infinite;
-            pointer-events: none;
-        }
 
-        .hero::after {
-            animation-direction: reverse;
-            opacity: .6;
-        }
+
+
+
     </style>
 
 </head>
@@ -80,14 +48,8 @@
             <div class="collapse navbar-collapse" id="nav-menu">
                 <form class="d-flex ms-auto me-3" role="search">
 
-                    <input 
-                        id="search" 
-                        class="form-control my-3 my-lg-0" 
-                        type="search"
-                        placeholder="Buscar itens do espaço…" 
-                        aria-label="Buscar"
-                        style="width: 300px;"
-                    >
+                    <input id="search" class="form-control my-3 my-lg-0" type="search"
+                        placeholder="Buscar itens do espaço…" aria-label="Buscar" style="width: 300px;">
 
                 </form>
                 <ul class="navbar-nav align-items-lg-center">
@@ -108,22 +70,30 @@
 
     <main class="container">
 
-       <section class="hero my-4 pt-0 p-md-6 mb-5">
-            <div class="row align-items-center g-4">
+        <section class="hero my-4 pt-0 p-md-6 mb-5">
+            <div class="row align-items-center g-4 ">
                 <div class="col-lg-6 p-5">
-                    <span class="badge badge-new text-white rounded-pill mb-3 px-3 py-2">Conheça nossos serviços</span>
-                    <h1 class="display-5 fw-bold"><span class="text-primary">Espaço</span> para sua
-                        coleção</h1>
-                    <p class="lead text-secondary mt-3">Rochas lunares de estudo, mini sondas, pôsteres estelares e
-                        souvenires cósmicos — em um site claro.</p>
-                    <div class="d-flex gap-3 mt-3">
+
+                    <h1 class="display-5 fw-bold titulo-principal"><span class="text-primary">Soluções</span>
+                        profissionais de <span class="text-primary">transmissão</span> para o seu evento</h1>
+
+                    <!-- <span class="badge badge-new text-white rounded-pill mb-3 px-3 py-2">Conheça nossos serviços</span> -->
+
+                    <p class="lead text-secondary mt-3">Transmissão ao vivo de shows, eventos esportivos, corporativos e
+                        muito mais — com qualidade garantida.</p>
+                    <div class="d-flex gap-3 area-botoes-hero">
                         <a href="#produtos" class="btn btn-primary btn-lg">Explorar produtos</a>
-                        <a href="#estudo" class="btn btn-outline-secondary btn-lg">Aprender primeiro</a>
+                        <a href="#estudo" class="btn btn-outline-secondary btn-lg">Fale conosco</a>
                     </div>
+
                 </div>
-                    <div class="col-lg-6 hero-img my-0">
-                        <img src="./assets/img/img hero.png" alt="Logo da empresa">
-                    </div>
+
+                <div class="col-lg-6 hero-img my-0">
+                    <!-- <img src="./assets/img/img hero.png" alt="Logo da empresa"> -->
+                    <video autoplay muted loop playsinline controls>
+                        <source src="./assets/img/Carros 3.mkv" type="video/mp4">
+                    </video>
+                </div>
             </div>
             <div class="stars" aria-hidden="true"></div>
         </section>
