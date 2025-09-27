@@ -3,6 +3,10 @@ package br.root.app.tarefas;
 import br.jasap.core.Effect;
 import br.jasap.core.JasapAct;
 import br.jasap.effect.Response;
+import br.jasap.util.JasapFunctions;
+import br.jasap.util.Js;
+import br.jasap.util.ShortDate;
+import java.util.Date;
 
 public class TarefasActions extends JasapAct{
 
@@ -49,11 +53,22 @@ public class TarefasActions extends JasapAct{
     public static class ExcluirTarefas extends TarefasActions{
         @Override
           public Effect execute() throws Exception {
-            TarefaComponentes componente = new TarefaComponentes(getManager());
-            getInput().printParameters();
-            TarefaDAO dao = new TarefaDAO(getManager());
-            dao.excluirTarefa(getInput().getInteger("ID"));
-            update("task-list", componente.TarefasIndividuais(true));
+              
+            if (JasapFunctions.equals(getInput().getInteger("_CONFIRM"), 1)){
+
+                TarefaComponentes componente = new TarefaComponentes(getManager());
+                getInput().printParameters();
+                TarefaDAO dao = new TarefaDAO(getManager());
+                dao.excluirTarefa(getInput().getInteger("ID"));
+                update("task-list", componente.TarefasIndividuais(true));
+
+            } else {
+                eval(Js.swalConfirm("Confirma a exclusão desse registro?", 
+                    link(ExcluirTarefas.class)
+                    .putInteger("ID", getInput().getInteger("ID"))
+                    .putInteger("_CONFIRM", 1).ajax()
+                    , "alert('disse nao');"));
+            }    
             return new Response();
           }  
     }
@@ -66,10 +81,22 @@ public class TarefasActions extends JasapAct{
             TarefaDAO dao = new TarefaDAO(getManager());
             TarefaBean bean = new TarefaBean();
             bean.setTitulo(getInput().getString("titulo"));
-            bean.setTitulo(getInput().getString("responsavel"));
-            bean.setTitulo(getInput().getString("descricao"));
+            bean.setResponsavel(getInput().getString("responsavel"));
+            bean.setDescricao(getInput().getString("descricao"));
             dao.adicionarTarefa(bean);
-            update("task-list", componente.TarefasIndividuais(true));
+            eval(link(TarefasActions.class).ajax());
+            return new Response();
+          }  
+    }
+    
+    public static class ValorData extends TarefasActions{
+        @Override
+          public Effect execute() throws Exception {
+            getInput().printParameters();
+
+            ShortDate atual = new ShortDate(new Date());
+            eval(Js.setElementValue("responsavel", atual.toString()));
+            
             return new Response();
           }  
     }

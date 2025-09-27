@@ -176,8 +176,8 @@ public class TarefaComponentes {
         aux.append("\n");
         aux.append("        <div id=\"formTarefa\" class=\"\">\n");
         aux.append("          <input type=\"hidden\" name=\"id_tarefa\" id=\"id_tarefa\" value=\"118\">\n");
-        aux.append("          <input type=\"text\" name=\"titulo\" id=\"titulo\" placeholder=\"Título da tarefa\" value=\"\" required vsubmit=1>\n");
-        aux.append("          <input type=\"text\" name=\"responsavel\" id=\"responsavel\" placeholder=\"Responsável da tarefa\" value=\"\" required vsubmit=1>\n");
+        aux.append("          <input type=\"text\" name=\"titulo\" id=\"titulo\" placeholder=\"Título da tarefa\" value=\"\" vdescription=\"Titulo\" vrequired=1 vsubmit=1>\n");
+        aux.append("          <input type=\"text\" name=\"responsavel\" id=\"responsavel\" placeholder=\"Responsável da tarefa\" value=\"\" vrequired=1 vsubmit=1>\n");
         aux.append("\n");
         aux.append("          <textarea name=\"descricao\" id=\"descricao\" placeholder=\"Descrição da tarefa\" vsubmit=1></textarea>\n");
         aux.append("          \n");
@@ -197,7 +197,7 @@ public class TarefaComponentes {
         aux.append("                <span>Média</span>\n");
         aux.append("              </label>\n");
         aux.append("\n");
-        aux.append("              <label class=\"radio radio--alta\">\n");
+        aux.append("              <label class=\"radio radio--alta\" onclick=\"" + link(ValorData.class).ajax() + "\">\n");
         aux.append("                <input type=\"radio\" name=\"prioridade\" value=\"alta\">\n");
         aux.append("                <span class=\"dot\"></span>\n");
         aux.append("                <span>Alta</span>\n");
@@ -209,9 +209,11 @@ public class TarefaComponentes {
         aux.append("        </div>\n");
         aux.append("\n");
         aux.append("        <div class=\"botoes\">\n");
+
+        aux.append("          <button id=\"btn-editar\" type=\"reset\" class=\"editar verde\" onclick=\"" + submit(AdicionarTarefa.class).validate().ajax().toHtml() + " \">Salvar</button>\n");
+
+        System.out.println("="+submit(AdicionarTarefa.class).validate().ajax().toHtml()+"=");
         
-        aux.append("          <button id=\"btn-editar\" type=\"reset\" class=\"editar verde\" onclick=\"" + submit(AdicionarTarefa.class).ajax() + " \">Salvar</button>\n");
-       
         aux.append("        </div>\n");
         aux.append("\n");
         aux.append("      </form>\n");

@@ -18,6 +18,7 @@ public class TarefasManager extends JasapRootManager {
         regAction(TarefasActions.NovaTarefa.class);
         regAction(TarefasActions.ExcluirTarefas.class);
         regAction(TarefasActions.AdicionarTarefa.class);
+        regAction(TarefasActions.ValorData.class);
         
     }
 }

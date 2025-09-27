@@ -1,3 +1,7 @@
+# Ignorar vídeos
+*.mp4
+*.mkv
+
 /build/
 # nbproject configs
 nbproject/private/

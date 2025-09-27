@@ -16,6 +16,9 @@ body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 
+.titulo-principal {
+    font-size: 2rem;
+}
 
 .nav-link {
     position: relative;
@@ -42,13 +45,11 @@ body {
     box-shadow: 0 10px 30px rgba(91, 141, 239, .15);
 }
 
-.hero-img {
+.hero-media {
     height: 100%;
     display: flex;
     justify-content: center;
-    /* Center horizontally */
     align-items: center;
-    /* Center vertically */
     padding: 0;
 
 }
@@ -57,7 +58,7 @@ body {
     width: 100%;
 }
 
-.hero-img img {
+.hero-media img {
     height: 100% !important;
     object-fit: cover;
     object-position: center;
@@ -68,7 +69,7 @@ body {
     align-items: stretch !important;
 }
 
-.hero-img video {
+.hero-media video {
     height: 100%;
     object-fit: cover;
     overflow: hidden;
